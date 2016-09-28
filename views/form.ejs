@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<body>
+  HANYA ISI SALAH SATU FORM<br>
+  -------------------------------------------------<br>
+  MELAKUKAN TRANSAKSI<br>
+  <form action="/submittransactions" method="POST">
+    Member ID <input type="text" name="memberid"><br>
+    Days <input type="text" name="days"><br>
+    Out_date <input type="text" name="outdate"><br>
+    Due_date <input type="text" name="duedate"><br>
+    In_date <input type="text" name="indate"><br>
+    Fine <input type="text" name="fine"><br>
+    Buku-buku yang diambil<br>
+    ISBN <input type="text" name="isbn1"> QTY <input type="number" name="qty1"><br>
+    ISBN <input type="text" name="isbn2"> QTY <input type="number" name="qty2"><br>
+    <input type="submit">
+  </form>
+  <br>
+  -------------------------------------------------<br>
+  TAMBAH BUKU<br>
+  <form action="/submitbooks" method="POST">
+    ISBN <input type="text" name="isbn"><br>
+    Title <input type="text" name="title"><br>
+    Author <input type="text" name="author"><br>
+    Category <input type="text" name="category"><br>
+    Stock <input type="text" name="stock"><br>
+    <input type="submit">
+  </form>
+  <br>
+  -------------------------------------------------<br>
+  TAMBAH CUSTOMER<br>
+  <form action="/submitcustomers" method= "POST">
+    Name <input type="text" name="name"><br>
+    MemberId <input type="text" name="memberid"><br>
+    Address <input type="text" name="address"><br>
+    Zipcode <input type="text" name="zipcode"><br>
+    Phone <input type="text" name="phone"><br>
+    <input type="submit">
+  </form>
+</body>
+</html>

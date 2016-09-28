@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  <% for (let i in books){ %>
+    <li>isbn: <%= books[i].isbn %> || title: <%= books[i].title %> || author: <%= books[i].author %> || category: <%= books[i].category %> || stock: <%= books[i].stock %>
+    <form action="/delete/<%= books[i].isbn %>" method="POST">
+      <input type = "submit" value="delete">
+    </form>
+    <form action="/edit/<%= books[i].isbn %>" method="POST">
+      <input type = "submit" value="edit">
+    </form>
+    <br>
+  <% } %>
+</body>
+</html>
