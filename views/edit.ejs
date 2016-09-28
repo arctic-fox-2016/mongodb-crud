@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+        <br><br>
+        <div class="container">
+            <h2>Edit Buku</h2>
+            <form method="POST" action="/save">
+              <div class="form-group">
+                <input type="hidden" name="id" value="<%=result._id %>"
+                <label for="formGroupExampleInput">ISBN</label>
+                <input type="text" class="form-control" placeholder="isbn" name="isbn" value="<%=result.isbn %>">
+                <label for="formGroupExampleInput">Title</label>
+                <input type="text" class="form-control" placeholder="title" name="title" value="<%=result.title %>">
+                <label for="formGroupExampleInput">Author</label>
+                <input type="text" class="form-control" placeholder="author" name="author" value="<%=result.author %>">
+                <label for="formGroupExampleInput">Category</label>
+                <input type="text" class="form-control" placeholder="category" name="category" value="<%=result.category %>">
+                <label for="formGroupExampleInput">Stock</label>
+                <input type="text" class="form-control" placeholder="stock" name="stock" value="<%=result.stock %>">
+              </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+            <br>
+            <br>
+        </div>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+
+</html>
