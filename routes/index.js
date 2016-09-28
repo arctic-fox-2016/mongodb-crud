@@ -12,10 +12,10 @@ router.get('/list', function(req, res, next) {
   })
 });
 
-router.post('/delete/:isbn', function(req, res, next) {
-  var bookId = req.params.isbn;
+router.post('/delete/:id', function(req, res, next) {
+  var bookId = req.params.id;
   console.log(bookId);
-  Book.findOneAndRemove({isbn:bookId},function(err,result){
+  Book.findOneAndRemove({_id:bookId},function(err,result){
     res.redirect('/list');
   })
 });
