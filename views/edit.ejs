@@ -3,10 +3,13 @@
 <head>
 </head>
 <body>
-  <form action="/update" method="POST">
-    <% for (let i in book){ %>
-      <%= i %> || <input type="text" value= <%=book[i]%> name= <%= i %>>
-    <% } %>
+  <form action="/updated/<%= book._id %>" method="POST">
+    ISBN: <input type="text" value= <%= book.isbn %> name="isbn"><br>
+    Title: <input type="text" value= <%= book.title %> name="title"><br>
+    Author: <input type="text" value= <%= book.author %> name="author"><br>
+    Category: <input type="text" value= <%= book.category %> name="category"><br>
+    Stock: <input type="text" value= <%= book.stock %> name="stock"><br>
+    <input type = "submit">
   </form>
 </body>
 </html>

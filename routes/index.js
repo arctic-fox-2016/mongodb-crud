@@ -72,10 +72,16 @@ router.post('/delete/:id', function(req,res,next){
 })
 
 router.post('/edit/:id', function(req,res,next){
-  let tempid = req.params.id
   Model.Books.findOne({isbn: req.params.id}, function(err, result){
     res.render('edit.ejs', {book: result.toJSON()})
   })
 })
+
+router.post('/updated/:id', function(req,res,next){
+  Model.Books.update({_id: req.params.id}, {isbn: req.body.isbn, title: req.body.title, author: req.body.author, category: req.body.category, stock: req.body.stock}, function(err, result){
+    res.redirect('/books')
+  })
+})
+
 
 module.exports = router
