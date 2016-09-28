@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+td {
+  padding: 15px;
+}
+</style>
+
+<head>
+  <body>
+    <h1><%= title%></h1>
+
+    <form action="/editsave" method="POST">
+      <input type="hidden" name="id" value="<%=result._id%>">
+      ISBN <br>
+      <input type="text" name="isbn" value="<%=result.isbn%>"><br>
+      Title <br>
+      <input type="text" name="title" value="<%=result.title%>"><br>
+      Author <br>
+      <input type="text" name="author" value="<%=result.author%>"><br>
+      Category <br>
+      <input type="text" name="category" value="<%=result.category%>"><br>
+      Stock <br>
+      <input type="number" name="stock" value="<%=result.stock%>"><br><br>
+      <input type='submit' value='Edit'>
+    </form>
+    <br><br>
+
+
+  </body>
+</head>
+</html>

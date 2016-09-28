@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+td {
+  padding: 15px;
+}
+</style>
+
+<head>
+  <body>
+    <h1><%= title%></h1>
+
+    <form action="/addbook" method="POST">
+      ISBN <br>
+      <input type="text" name="isbn"><br>
+      Title <br>
+      <input type="text" name="title"><br>
+      Author <br>
+      <input type="text" name="author"><br>
+      Category <br>
+      <input type="text" name="category"><br>
+      Stock <br>
+      <input type="number" name="stock"><br><br>
+      <input type='submit' value='Submit'>
+    </form>
+    <br><br>
+
+    <h2>Book List</h2>
+
+    <table >
+     <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th></th>
+        </tr>
+     </thead>
+     <tbody >
+       <%for (var i in daftarbuku) {%>
+      <tr>
+        <td><%= daftarbuku[i].isbn%> </td>
+        <td><%= daftarbuku[i].title%> </td>
+        <td><%= daftarbuku[i].author%> </td>
+        <td><%= daftarbuku[i].category%> </td>
+        <td><%= daftarbuku[i].stock%> </td>
+        <td>
+          <form action='/delete/<%= daftarbuku[i].id%>' method="POST">
+            <input type='submit' value='Delete'>
+          </form>
+          <form action='/edit/<%= daftarbuku[i].id%>' method="POST">
+            <input type='submit' value='Edit'>
+          </form>
+        </td>
+       <%}%>
+     </tr>
+
+     </tbody>
+    </table>
+
+
+
+
+  </body>
+</head>
+</html>
