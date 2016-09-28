@@ -1,0 +1,140 @@
+<% include header %>
+
+  <% if (collection == "books") { %>
+
+    <h1>Update Book</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-3-offset">
+          <form method="post" action="update" class="form-group">
+            <input name="collection" type="hidden" value="books">
+            <input name="_id" type="hidden" value="<%= book[0]._id %>">
+            <div class="form-group">
+              <label>ISBN</label>
+              <input name="isbn" type="text" class="form-control" value="<%= book[0].isbn %>">
+            </div>
+            <div class="form-group">
+              <label>Title</label>
+              <input name="title" type="text" class="form-control" value="<%= book[0].title %>">
+            </div>
+            <div class="form-group">
+              <label>Author</label>
+              <input name="author" type="text" class="form-control" value="<%= book[0].author %>">
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <input name="category" type="text" class="form-control" value="<%= book[0].category %>">
+            </div>
+            <div class="form-group">
+              <label>Stock</label>
+              <input name="stock" type="number" class="form-control" value="<%= book[0].stock %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <% } else if (collection == "customers") { %>
+
+    <h1>Update Customer</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-3-offset">
+          <form method="post" action="update" class="form-group">
+            <input name="collection" type="hidden" value="customers">
+            <input name="_id" type="hidden" value="<%= customer[0]._id %>">
+            <div class="form-group">
+              <label>Name</label>
+              <input name="name" type="text" class="form-control" value="<%= customer[0].name %>">
+            </div>
+            <div class="form-group">
+              <label>Member ID</label>
+              <input name="memberid" type="text" class="form-control" value="<%= customer[0].memberid %>">
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <input name="address" type="text" class="form-control" value="<%= customer[0].address %>">
+            </div>
+            <div class="form-group">
+              <label>Zip Code</label>
+              <input name="zipcode" type="text" class="form-control" value="<%= customer[0].zipcode %>">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input name="phone" type="text" class="form-control" value="<%= customer[0].phone %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Customer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <% } else if (collection == "transactions") { %>
+
+    <h1>Update Transaction</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-3-offset">
+          <form method="post" action="update" class="form-group">
+            <input name="collection" type="hidden" value="transactions">
+            <input name="_id" type="hidden" value="<%= transaction[0]._id %>">
+            <div class="form-group">
+              <label>Member ID</label>
+              <select class="form-control" onchange=" document.getElementById('displayValueMemberId').value=this.options[this.selectedIndex].value;">
+                <% for (var i = 0; i < customer.length; i++) { %>
+                  <option value="<%= customer[i].memberid %>"
+                    <% if (transaction[0].booklist[0].isbn == book[i].isbn) { %>
+                      selected ="selected"
+                    <% } %>
+                    ><%= customer[i].memberid %> - <%= customer[i].name %></option>
+                <% } %>
+              </select>
+              <input name="memberid" type="hidden" id="displayValueMemberId" onfocus="this.select()" value="<%= transaction[0].memberid %>">
+            </div>
+            <div class="form-group">
+              <label>Days</label>
+              <input name="days" type="number" class="form-control" value="<%= transaction[0].days %>">
+            </div>
+            <div class="form-group">
+              <label>Out Date</label>
+              <input name="out_date" type="date" class="form-control" value="<%= out_date %>">
+            </div>
+            <div class="form-group">
+              <label>Due Date</label>
+              <input name="due_date" type="date" class="form-control" value="<%= due_date %>">
+            </div>
+            <div class="form-group">
+              <label>In Date</label>
+              <input name="in_date" type="date" class="form-control" value="<%= in_date %>">
+            </div>
+            <div class="form-group">
+              <label>Fine</label>
+              <input name="fine" type="number" class="form-control" value="<%= transaction[0].fine %>">
+            </div>
+            <div class="form-group">
+              <label>Book ISBN</label>
+              <select class="form-control" onchange=" document.getElementById('displayValueISBN').value=this.options[this.selectedIndex].value;">
+                <% for (var i = 0; i < book.length; i++) { %>
+                  <option value="<%= book[i].isbn %>"
+                    <% if (transaction[0].booklist[0].isbn == book[i].isbn) { %>
+                      selected ="selected"
+                    <% } %>
+                  ><%= book[i].isbn %> - <%= book[i].title %></option>
+                <% } %>
+              </select>
+              <input name="isbn" type="hidden" id="displayValueISBN" onfocus="this.select()" value="<%= transaction[0].booklist[0].isbn %>">
+            </div>
+            <div class="form-group">
+              <label>Quantity</label>
+              <input name="qty" type="number" class="form-control" value="<%= transaction[0].booklist[0].qty %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Transaction</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <% } %>
+
+<% include footer %>

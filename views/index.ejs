@@ -1,0 +1,125 @@
+<% include header %>
+
+    <h1>Books</h1>
+    <form method="get" action="insert">
+      <input type="hidden" name="collection" value="books">
+      <button type="submit" class="btn btn-success">Add New Book</button>
+    </form>
+    <table>
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Stock</th>
+      </tr>
+      <% for (var i = 0; i < book.length; i++) { %>
+      <tr>
+        <td><%= book[i].isbn %></td>
+        <td><%= book[i].title %></td>
+        <td><%= book[i].author %></td>
+        <td><%= book[i].category %></td>
+        <td><%= book[i].stock %></td>
+        <td>
+          <form method="get" action="update">
+            <input type="hidden" name="collection" value="books">
+            <input type="hidden" name="_id" value="<%= book[i]._id %>">
+            <button type="submit" class="btn btn-warning">Update</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="delete">
+            <input name="collection" type="hidden" value="books">
+            <input type="hidden" name="_id" value="<%= book[i]._id %>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+
+    <h1>Customers</h1>
+    <form method="get" action="insert">
+      <input type="hidden" name="collection" value="customers">
+      <button type="submit" class="btn btn-success">Add New Customer</button>
+    </form>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Member ID</th>
+        <th>Address</th>
+        <th>Zip Code</th>
+        <th>Phone</th>
+      </tr>
+      <% for (var i = 0; i < customer.length; i++) { %>
+      <tr>
+        <td><%= customer[i].name %></td>
+        <td><%= customer[i].memberid %></td>
+        <td><%= customer[i].address %></td>
+        <td><%= customer[i].zipcode %></td>
+        <td><%= customer[i].phone %></td>
+        <td>
+          <form method="get" action="update">
+            <input type="hidden" name="collection" value="customers">
+            <input type="hidden" name="_id" value="<%= customer[i]._id %>">
+            <button type="submit" class="btn btn-warning">Update</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="delete">
+            <input name="collection" type="hidden" value="customers">
+            <input type="hidden" name="_id" value="<%= customer[i]._id %>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+
+    <h1>Transactions</h1>
+    <form method="get" action="insert">
+      <input type="hidden" name="collection" value="transactions">
+      <button type="submit" class="btn btn-success">Add New Transaction</button>
+    </form>
+    <table>
+      <tr>
+        <th>Member ID</th>
+        <th>Days</th>
+        <th>Out Date</th>
+        <th>Due Date</th>
+        <th>In Date</th>
+        <th>Fine</th>
+        <th>Book ISBN</th>
+        <th>Quantity</th>
+      </tr>
+      <% for (var i = 0; i < transaction.length; i++) { %>
+        <% for (var j = 0; j < transaction[i].booklist.length; j++) { %>
+          <tr>
+            <td><%= transaction[i].memberid %></td>
+            <td><%= transaction[i].days %></td>
+            <td><%= transaction[i].out_date %></td>
+            <td><%= transaction[i].due_date %></td>
+            <td><%= transaction[i].in_date %></td>
+            <td><%= transaction[i].fine %></td>
+            <td><%= transaction[i].booklist[j].isbn %></td>
+            <td><%= transaction[i].booklist[j].qty %></td>
+            <td>
+              <form method="get" action="update">
+                <input type="hidden" name="collection" value="transactions">
+                <input type="hidden" name="_id" value="<%= transaction[i]._id %>">
+                <button type="submit" class="btn btn-warning">Update</button>
+              </form>
+            </td>
+            <td>
+              <form method="post" action="delete">
+                <input name="collection" type="hidden" value="transactions">
+                <input type="hidden" name="_id" value="<%= transaction[i]._id %>">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% } %>
+      <% } %>
+    </table>
+
+<% include footer %>
