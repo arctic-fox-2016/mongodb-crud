@@ -1,0 +1,15 @@
+TRANSACTIONS<br>
+------------------------------------------<br>
+<% for (let i in transactions){ %>
+<li>Memberid: <%= transactions[i].memberid %> || days: <%= transactions[i].days %> || Out Date: <%= transactions[i].out_date %> || Due Date: <%= transactions[i].due_date %> || In Date: <%= transactions[i].in_date %> || Fine: <%= transactions[i].fine %> || <br>
+  <% for (let j in transactions[i].booklist){ %>
+    <li>ISBN <%= transactions[i].booklist[j].isbn %> || QTY <%=transactions[i].booklist[j].qty %> <br>
+  <% } %>
+<form action="/deletecustomers/<%= transactions[i].memberid %>" method="POST">
+  <input type = "submit" value="delete">
+</form>
+<form action="/editcustomers/<%= transactions[i].memberid %>" method="POST">
+  <input type = "submit" value="edit">
+</form>
+<% } %>
+<br>

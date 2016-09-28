@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  <form action="/updatedcustomers/<%= customers._id %>" method="POST">
+    Name: <input type="text" value= <%= customers.name %> name="name"><br>
+    MemberId: <input type="text" value= <%= customers.memberid %> name="memberid"><br>
+    Address: <input type="text" value= <%= customers.address %> name="address"><br>
+    Zipcode: <input type="text" value= <%= customers.zipcode %> name="zipcode"><br>
+    Phone: <input type="text" value= <%= customers.phone %> name="phone"><br>
+    <input type = "submit">
+  </form>
+</body>
+</html>
