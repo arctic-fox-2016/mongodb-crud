@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  <form action="/updatedbooks/<%= book._id %>" method="POST">
+    ISBN: <input type="text" value= <%= book.isbn %> name="isbn"><br>
+    Title: <input type="text" value= <%= book.title %> name="title"><br>
+    Author: <input type="text" value= <%= book.author %> name="author"><br>
+    Category: <input type="text" value= <%= book.category %> name="category"><br>
+    Stock: <input type="text" value= <%= book.stock %> name="stock"><br>
+    <input type = "submit">
+  </form>
+</body>
+</html>

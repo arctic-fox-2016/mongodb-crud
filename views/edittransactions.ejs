@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  <form action="/updatedtransactions/<%= transaction._id %>" method="POST">
+    Member ID: <input type="text" value= <%= transaction.memberid %> name="memberid"><br>
+    Days: <input type="number" value= <%= transaction.days %> name="days"><br>
+    OutDate: <input type="date" value= <%= convertDate(transaction.out_date) %> name="outdate"><br>
+    DueDate: <input type="date" value= <%= convertDate(transaction.due_date) %> name="duedate"><br>
+    InDate: <input type="date" value= <%= convertDate(transaction.in_date) %> name="indate"><br>
+    Fine: <input type="number" value= <%= transaction.fine %> name="fine"><br>
+    <input type = "submit">
+  </form>
+</body>
+</html>
