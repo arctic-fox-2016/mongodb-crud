@@ -118,7 +118,12 @@ router.post('/edittransactions/:id', function(req,res,next){
 })
 
 router.post('/updatedtransactions/:id', function(req,res,next){
-  Model.Transactions.update({_id: req.params.id}, {memberid: req.body.memberid, days: req.body.days, out_date: req.body.outdate, due_date: req.body.duedate, in_date: req.body.indate, fine: req.body.fine}, function(err, result){
+  Model.Transactions.update({_id: req.params.id}, {memberid: req.body.memberid, days: req.body.days, out_date: req.body.outdate, due_date: req.body.duedate, in_date: req.body.indate, fine: req.body.fine,
+    // for(let i in req.body.booklistisbn){
+    //   booklist[i].isbn: req.body.booklistisbn[i], booklist[i].qty: req.body.booklistqty[i]
+    // }
+  },
+    function(err, result){
     res.redirect('/')
   })
 })

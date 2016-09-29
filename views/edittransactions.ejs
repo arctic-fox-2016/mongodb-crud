@@ -10,10 +10,6 @@
     DueDate: <input type="date" value= <%= convertDate(transaction.due_date) %> name="duedate"><br>
     InDate: <input type="date" value= <%= convertDate(transaction.in_date) %> name="indate"><br>
     Fine: <input type="number" value= <%= transaction.fine %> name="fine"><br>
-    Booklist:<br>
-    <% for (let i=0; i<transaction.booklist.length; i++){ %>
-      ISBN: <input type="text" value= <%= transaction.booklist[i].isbn %> >|| QTY: <input type="number" value= <%= transaction.booklist[i].qty %>><br>
-    <% } %>
     <input type = "submit">
   </form>
 </body>

@@ -1,6 +1,6 @@
 let mongoose = require("mongoose")
 let Schema = mongoose.Schema
-mongoose.connect('localhost:27017/crud')
+mongoose.connect('localhost:27017/testinglagi1')
 
 let customersSchema = new Schema({
   name: String,
@@ -29,7 +29,11 @@ let transactionsSchema = new Schema({
     type: Array,
     isbn: {type: String},
     qty: {type: Number}
-  }
+  },
+  // customer: {
+  //   type: Schema.ObjectId,
+  //   ref: 'customers'
+  // },
 })
 
 let Customers = mongoose.model('customers', customersSchema)

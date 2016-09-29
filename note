@@ -13,3 +13,8 @@ TRANSACTIONS<br>
 </form>
 <% } %>
 <br>
+
+Booklist:<br>
+<% for (let i=0; i<transaction.booklist.length; i++){ %>
+  ISBN: <input type="text" value= <%= transaction.booklist[i].isbn %> name="booklistisbn[<%= i %>]" >|| QTY: <input type="number" name="booklistqty[<%= i %>]" value= <%= transaction.booklist[i].qty %>><br>
+<% } %>
