@@ -3,16 +3,16 @@
 <head>
 </head>
 <body>
-  <form action="/updatedbooks/<%= transaction._id %>" method="POST">
+  <form action="/updatedtransactions/<%= transaction._id %>" method="POST">
     Member ID: <input type="text" value= <%= transaction.memberid %> name="memberid"><br>
-    Days: <input type="text" value= <%= transaction.days %> name="days"><br>
-    OutDate: <input type="text" value= <%= transaction.outdate %> name="outdate"><br>
-    DueDate: <input type="text" value= <%= transaction.duedate %> name="duedate"><br>
-    InDate: <input type="text" value= <%= transaction.indate %> name="indate"><br>
-    Fine: <input type="text" value= <%= transaction.fine %> name="fine"><br>
+    Days: <input type="number" value= <%= transaction.days %> name="days"><br>
+    OutDate: <input type="date" value= <%= convertDate(transaction.out_date) %> name="outdate"><br>
+    DueDate: <input type="date" value= <%= convertDate(transaction.due_date) %> name="duedate"><br>
+    InDate: <input type="date" value= <%= convertDate(transaction.in_date) %> name="indate"><br>
+    Fine: <input type="number" value= <%= transaction.fine %> name="fine"><br>
     Booklist:<br>
     <% for (let i=0; i<transaction.booklist.length; i++){ %>
-      ISBN: <input type="text" value= <%= transaction.booklist[i].isbn %> || QTY: <input type="text" value= <%= transaction.booklist[i].qty %><br>
+      ISBN: <input type="text" value= <%= transaction.booklist[i].isbn %> >|| QTY: <input type="number" value= <%= transaction.booklist[i].qty %>><br>
     <% } %>
     <input type = "submit">
   </form>

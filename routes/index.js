@@ -3,6 +3,7 @@ let mongoose = require('mongoose')
 let router = express('router')
 let bodyParser = require('body-parser')
 let Model = require('../models/model.js')
+let convertDate = require('../helper/function.js')
 
 router.use(bodyParser.urlencoded({extended:true}))
 router.set('view-engine','ejs')
@@ -111,22 +112,15 @@ router.post('/deletetransactions/:id', function(req,res,next){
 })
 
 router.post('/edittransactions/:id', function(req,res,next){
-
   Model.Transactions.findOne({_id: req.params.id}, function(err, result){
-    res.render('edittransactions.ejs', {transaction: result.toJSON()})
+    res.render('edittransactions.ejs', {transaction: result.toJSON(), convertDate: convertDate})
   })
 })
 
 router.post('/updatedtransactions/:id', function(req,res,next){
-  Model.Transactions.update({_id: req.params.id}, {name: req.body.name, memberid: req.body.memberid, zipcode: req.body.zipcode, address: req.body.address, phone: req.body.phone}, function(err, result){
+  Model.Transactions.update({_id: req.params.id}, {memberid: req.body.memberid, days: req.body.days, out_date: req.body.outdate, due_date: req.body.duedate, in_date: req.body.indate, fine: req.body.fine}, function(err, result){
     res.redirect('/')
   })
 })
 
-
 module.exports = router
-
-
-//booklist only show 1
-//date cannot be in the correct format
-//if blank, put blank

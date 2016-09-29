@@ -20,7 +20,7 @@
   CUSTOMERS<br>
   ------------------------------------------<br>
   <% for (let i in customers){ %>
-    <li>name: <%= customers[i].name %> || memberid: <%= customers[i].memberid %> || address: <%= customers[i].address %> || zipcode: <% customers[i].zipcode %>
+    <li>name: <%= customers[i].name %> || memberid: <%= customers[i].memberid %> || address: <%= customers[i].address %> || zipcode: <%= customers[i].zipcode %>
     <br>
     <form action="/deletecustomers/<%= customers[i].memberid %>" method="POST">
       <input type = "submit" value="delete">
@@ -34,7 +34,7 @@
   ------------------------------------------<br>
   <% for (let i in transactions){ %>
   <li>Memberid: <%= transactions[i].memberid %> || days: <%= transactions[i].days %> || Out Date: <%= transactions[i].out_date %> || Due Date: <%= transactions[i].due_date %> || In Date: <%= transactions[i].in_date %> || Fine: <%= transactions[i].fine %> || <br>
-    <% for (let j =0; j<transactions[i].booklist.length; j++){ %>
+    <% for (let j=0; j<transactions[i].booklist.length; j++){ %>
       <li>ISBN <%= transactions[i].booklist[j].isbn %> || QTY <%=transactions[i].booklist[j].qty %> <br>
     <% } %>
   <form action="/deletetransactions/<%= transactions[i]._id %>" method="POST">
@@ -45,5 +45,7 @@
   </form>
   <% } %>
   <br>
+  <br>
+  <a href="/formtransaction">Add Record</a>
 </body>
 </html>

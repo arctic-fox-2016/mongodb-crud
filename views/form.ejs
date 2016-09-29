@@ -7,11 +7,11 @@
   MELAKUKAN TRANSAKSI<br>
   <form action="/submittransactions" method="POST">
     Member ID <input type="text" name="memberid"><br>
-    Days <input type="text" name="days"><br>
-    Out_date <input type="text" name="outdate"><br>
-    Due_date <input type="text" name="duedate"><br>
-    In_date <input type="text" name="indate"><br>
-    Fine <input type="text" name="fine"><br>
+    Days <input type="number" name="days"><br>
+    Out_date <input type="date" name="outdate"><br>
+    Due_date <input type="date" name="duedate"><br>
+    In_date <input type="date" name="indate"><br>
+    Fine <input type="number" name="fine"><br>
     Buku-buku yang diambil<br>
     ISBN <input type="text" name="isbn1"> QTY <input type="number" name="qty1"><br>
     ISBN <input type="text" name="isbn2"> QTY <input type="number" name="qty2"><br>
@@ -25,7 +25,7 @@
     Title <input type="text" name="title"><br>
     Author <input type="text" name="author"><br>
     Category <input type="text" name="category"><br>
-    Stock <input type="text" name="stock"><br>
+    Stock <input type="number" name="stock"><br>
     <input type="submit">
   </form>
   <br>
