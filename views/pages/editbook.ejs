@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+        <form action="/library/books/<%= book._id %>" method="POST">
+
+          <div class="form-group">
+            <label>isbn</label>
+            <input type="text" name="isbn" class="form-control" value="<%= book.isbn %>">
+          </div>
+
+          <div class="form-group">
+            <label>title</label>
+            <input type="text" name="title" class="form-control" value="<%= book.title %>">
+          </div>
+          
+          <div class="form-group">
+                <label>author</label>
+                <input type="text" name="author" class="form-control" value="<%= book.author %>">
+          </div>
+          
+          <div class="form-group">
+                <label>category</label>
+                <input type="text" name="category" class="form-control" value="<%= book.category %>">
+          </div>
+
+          <div class="form-group">
+                <label>stock</label>
+                <input type="text" name="stock" class="form-control" value="<%= book.stock %>">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg">Update</button>
+          </div>
+
+        </form>
+
+  </div>
+</div>
