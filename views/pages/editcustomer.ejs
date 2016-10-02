@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+        <form action="/library/customers/<%= customer._id %>" method="POST">
+
+          <div class="form-group">
+            <label>name</label>
+            <input type="text" name="name" class="form-control" value="<%= customer.name %>">
+          </div>
+
+          <div class="form-group">
+            <label>memberid</label>
+            <input type="text" name="memberid" class="form-control" value="<%= customer.memberid %>">
+          </div>
+          
+          <div class="form-group">
+                <label>address</label>
+                <input type="text" name="address" class="form-control" value="<%= customer.address %>">
+          </div>
+          
+          <div class="form-group">
+                <label>zipcode</label>
+                <input type="text" name="zipcode" class="form-control" value="<%= customer.zipcode %>">
+          </div>
+
+          <div class="form-group">
+                <label>phone</label>
+                <input type="text" name="phone" class="form-control" value="<%= customer.phone %>">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg">Update</button>
+          </div>
+
+        </form>
+
+  </div>
+</div>
