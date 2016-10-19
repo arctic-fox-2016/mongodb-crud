@@ -1,0 +1,81 @@
+<% include stylescript %>
+
+    <h1>Books</h1>
+    <table>
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Stock</th>
+      </tr>
+      <% for (var i = 0; i < book.length; i++) { %>
+      <tr>
+        <td><%= book[i].isbn %></td>
+        <td><%= book[i].title %></td>
+        <td><%= book[i].author %></td>
+        <td><%= book[i].category %></td>
+        <td><%= book[i].stock %></td>
+        <td>
+          <form method="get" action="update">
+            <input type="hidden" name="collection" value="books">
+            <input type="hidden" name="_id" value="<%= book[i]._id %>">
+            <button type="submit" class="btn btn-warning">Update</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="delete">
+            <input name="collection" type="hidden" value="books">
+            <input type="hidden" name="_id" value="<%= book[i]._id %>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+    <form method="get" action="insert">
+      <input type="hidden" name="collection" value="books">
+      <button type="submit" class="btn btn-success">Add New Book</button>
+    </form>
+
+    <hr>
+
+    <h1>Customers</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Member ID</th>
+        <th>Address</th>
+        <th>Zip Code</th>
+        <th>Phone</th>
+      </tr>
+      <% for (var i = 0; i < customer.length; i++) { %>
+      <tr>
+        <td><%= customer[i].name %></td>
+        <td><%= customer[i].memberid %></td>
+        <td><%= customer[i].address %></td>
+        <td><%= customer[i].zipcode %></td>
+        <td><%= customer[i].phone %></td>
+        <td>
+          <form method="get" action="update">
+            <input type="hidden" name="collection" value="customers">
+            <input type="hidden" name="_id" value="<%= customer[i]._id %>">
+            <button type="submit" class="btn btn-warning">Update</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="delete">
+            <input name="collection" type="hidden" value="customers">
+            <input type="hidden" name="_id" value="<%= customer[i]._id %>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+    <form method="get" action="insert">
+      <input type="hidden" name="collection" value="customers">
+      <button type="submit" class="btn btn-success">Add New Customer</button>
+    </form>
+
+<% include script %>
